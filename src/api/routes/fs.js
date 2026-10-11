@@ -154,7 +154,7 @@ router.get('/:siteId/file', async (req, res) => {
    POST /fs/:siteId/file
 -------------------------------------------------- */
 
-router.post('/:siteId/file', express.urlencoded({ extended: false }), async (req, res) => {
+router.post('/:siteId/file', express.json(), express.urlencoded({ extended: false }), async (req, res) => {
   const siteId = req.params.siteId;
   const siteRoot = getSiteRoot(siteId);
   if (!siteRoot) return res.sendStatus(404);
@@ -202,7 +202,7 @@ router.post('/:siteId/file', express.urlencoded({ extended: false }), async (req
    POST /fs/:siteId/folder
 -------------------------------------------------- */
 
-router.post('/:siteId/folder', express.urlencoded({ extended: false }), async (req, res) => {
+router.post('/:siteId/folder', express.json(), express.urlencoded({ extended: false }), async (req, res) => {
   const siteRoot = getSiteRoot(req.params.siteId);
   if (!siteRoot) return res.sendStatus(404);
 
@@ -242,7 +242,7 @@ router.post('/:siteId/folder', express.urlencoded({ extended: false }), async (r
    POST /fs/:siteId/rename
 -------------------------------------------------- */
 
-router.post('/:siteId/rename', express.urlencoded({ extended: false }), async (req, res) => {
+router.post('/:siteId/rename', express.json(), express.urlencoded({ extended: false }), async (req, res) => {
   const siteId = req.params.siteId;
   const siteRoot = getSiteRoot(siteId);
   if (!siteRoot) return res.sendStatus(404);
@@ -274,7 +274,7 @@ router.post('/:siteId/rename', express.urlencoded({ extended: false }), async (r
    POST /fs/:siteId/delete
 -------------------------------------------------- */
 
-router.post('/:siteId/delete', express.urlencoded({ extended: false }), async (req, res) => {
+router.post('/:siteId/delete', express.json(), express.urlencoded({ extended: false }), async (req, res) => {
   const siteId = req.params.siteId;
   const siteRoot = getSiteRoot(siteId);
   if (!siteRoot) return res.sendStatus(404);
@@ -470,7 +470,7 @@ router.get('/:siteId/download', async (req, res) => {
    POST /fs/:siteId/move
 -------------------------------------------------- */
 
-router.post('/:siteId/move', express.urlencoded({ extended: false }), async (req, res) => {
+router.post('/:siteId/move', express.json(), express.urlencoded({ extended: false }), async (req, res) => {
   const siteId = req.params.siteId;
   const siteRoot = getSiteRoot(siteId);
   if (!siteRoot) return res.sendStatus(404);
